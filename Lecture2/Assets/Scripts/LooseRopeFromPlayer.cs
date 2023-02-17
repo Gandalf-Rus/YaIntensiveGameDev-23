@@ -15,7 +15,7 @@ public class LooseRopeFromPlayer : MonoBehaviour
     {
         if (!_endOfRope.IsRopeFree)
         {
-            if (_joint.connectedBody.gameObject.name == "Player")
+            if (_joint.connectedBody.TryGetComponent(out PlayerCondition player))
             {
                 if (Input.GetMouseButtonDown(0))
                 {
