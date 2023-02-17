@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EndOfRope : MonoBehaviour
@@ -26,10 +27,13 @@ public class EndOfRope : MonoBehaviour
         _playerCondition.HangOnRope();
     }
 
-    public void Free()
+    public IEnumerator Free()
     {
-        _isRopeFree = true;
+        if (_joint.enabled == false)
+            yield break;
         _joint.enabled = false;
         _playerCondition.TakeOffFromRope();
+        yield return new WaitForSeconds(1);
+        _isRopeFree = true;
     }
 }

@@ -19,7 +19,7 @@ public class LooseRopeFromPlayer : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    _endOfRope.Free();
+                    StartCoroutine(_endOfRope.Free());
 
                 }
             }
