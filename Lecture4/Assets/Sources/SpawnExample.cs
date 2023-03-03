@@ -1,5 +1,6 @@
 using UnityEngine;
 using Asteroids.Model;
+using System.Collections.Generic;
 
 public class SpawnExample : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SpawnExample : MonoBehaviour
 
     private int _index;
     private float _secondsPerIndex = 1f;
+    private Army _army1, _army2;
 
     private void Update()
     {
@@ -20,16 +22,28 @@ public class SpawnExample : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _army1 = new Army();
+        _army2 = new Army();
+        for (int i = 0; i < 100; i++)
+        {
+            Nlo nlo1 = new Nlo(null, GetRandomPositionOutsideScreen(), Config.NloSpeed);
+            Nlo nlo2 = new Nlo(null, GetRandomPositionOutsideScreen(), Config.NloSpeed);
+            _army1.AddNewNLO(nlo1);
+            _army2.AddNewNLO(nlo2);
+            nlo1.SetEnemy(nlo2);
+            nlo2.SetEnemy(nlo1);
+            _factory.CreateNlo(nlo1, Color.blue);
+            _factory.CreateNlo(nlo2, Color.red);
+        }
+    }
+
     private void OnTick()
     {
         float chance = Random.Range(0, 100);
 
         if (chance < 20)
-        {
-            Nlo nlo = new Nlo(_init.Ship, GetRandomPositionOutsideScreen(), Config.NloSpeed);
-            _factory.CreateNlo(nlo);
-        }
-        else
         {
             Vector2 position = GetRandomPositionOutsideScreen();
             Vector2 direction = GetDirectionThroughtScreen(position);

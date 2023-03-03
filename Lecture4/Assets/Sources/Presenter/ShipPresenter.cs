@@ -11,7 +11,7 @@ public class ShipPresenter : Presenter
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(Asteroids.Model.Config.EnemyTag))
         {
             _init.Ship.TakeDamage();
             if (_init.Ship.Health == 0)

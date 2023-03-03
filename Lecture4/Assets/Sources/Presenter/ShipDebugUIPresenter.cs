@@ -17,7 +17,6 @@ public class ShipDebugUIPresenter : MonoBehaviour
     {
         _init.LaserGun.Shot += OnLaserGunShot;
         _init.LaserGun.ShotAdd += OnLaserGunShotAdd;
-
         UpdateLasersCount();
     }
 
