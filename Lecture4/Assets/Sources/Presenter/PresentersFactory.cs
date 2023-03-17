@@ -13,7 +13,7 @@ public class PresentersFactory : MonoBehaviour
 
     public void CreateBullet(Bullet bullet)
     {
-        if(bullet is LaserGunBullet)
+        if (bullet is LaserGunBullet)
             CreatePresenter(_laserGunBulletTemplate, bullet);
         else
             CreatePresenter(_defaultGunBulletTemplate, bullet);
@@ -27,7 +27,8 @@ public class PresentersFactory : MonoBehaviour
 
     public void CreateNlo(Nlo nlo, Color color)
     {
-        CreatePresenter(_nloTemplate, nlo);
+        EnemyPresenter presenter = CreatePresenter(_nloTemplate, nlo) as EnemyPresenter;
+        //presenter.Initiale(nlo, nlo.Target, color);
     }
 
     public void CreateAsteroid(Asteroid asteroid)
