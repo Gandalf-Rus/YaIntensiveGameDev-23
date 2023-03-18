@@ -8,7 +8,6 @@ public class UICounter : MonoBehaviour
 
     [SerializeField] private AnimationCurve _scaleCurve;
     [SerializeField] private TextMeshProUGUI _text;
-    // Время, в течении которого проходит анимация
     [SerializeField] private float _animationTime;
     [SerializeField] private Resources _resources;
 
@@ -17,7 +16,6 @@ public class UICounter : MonoBehaviour
         StartCoroutine(ScaleAnimation());
     }
 
-    // Колебание масштаба счетчика
     private IEnumerator ScaleAnimation()
     {
         _text.text = _resources.Coins.ToString();

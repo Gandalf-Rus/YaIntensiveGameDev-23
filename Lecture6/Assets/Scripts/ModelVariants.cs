@@ -33,6 +33,4 @@ public class ModelVariants : MonoBehaviour
         _currenSelected = _models[index];
         _currenSelected.SetActive(true);
     }
-
-
 }

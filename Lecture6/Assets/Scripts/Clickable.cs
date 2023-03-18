@@ -13,7 +13,6 @@ public class Clickable : MonoBehaviour
 
     private int _coinsPerClick = 1;
 
-    // Метод вызывается из Interaction при клике на объект
     public void Hit()
     {
         HitEffect hitEffect = Instantiate(_hitEffectPrefab, transform.position, Quaternion.identity);
@@ -22,7 +21,6 @@ public class Clickable : MonoBehaviour
         StartCoroutine(HitAnimation());
     }
 
-    // Анимация колебания куба
     private IEnumerator HitAnimation()
     {
         for (float t = 0; t < 1f; t += Time.deltaTime / _scaleTime)
@@ -34,7 +32,6 @@ public class Clickable : MonoBehaviour
         transform.localScale = Vector3.one;
     }
 
-    // Этот метод увеличивает количество монет, получаемой при клике
     public void AddCoinsPerClick(int value)
     {
         _coinsPerClick += value;

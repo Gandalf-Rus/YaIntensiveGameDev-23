@@ -42,6 +42,4 @@ public class Resources : MonoBehaviour
             return false;
         }
     }
-
-
 }

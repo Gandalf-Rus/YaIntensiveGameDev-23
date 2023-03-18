@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Скрипт для кнопки увеличивающей доход с одного клика
 public class ShopButton : MonoBehaviour
 {
 
     [SerializeField] private Button _button;
     [SerializeField] private Resources _resources;
     [SerializeField] private int _price;
-    [SerializeField] private Clickable _сlickable;
+    [SerializeField] private Clickable _clickable;
 
     private void Start()
     {
@@ -21,7 +20,7 @@ public class ShopButton : MonoBehaviour
 
     public void Buy() {
         if (_resources.TryBuy(_price)) {
-            _сlickable.AddCoinsPerClick(1);
+            _clickable.AddCoinsPerClick(1);
         }
     }
 

@@ -12,7 +12,6 @@ public class FlyingCoin : MonoBehaviour
         StartCoroutine(MoveToPoint(transform.position, targetPosition));
     }
 
-    // Перемещение монеты из точки a в b за 1 секунду
     private IEnumerator MoveToPoint(Vector3 a, Vector3 b)
     {
         for (float t = 0; t < 1f; t += Time.deltaTime)
