@@ -13,12 +13,15 @@ public class Clickable : MonoBehaviour
 
     private int _coinsPerClick = 1;
 
+    [SerializeField] private PartCreator _partCeator;
+
     public void Hit()
     {
         HitEffect hitEffect = Instantiate(_hitEffectPrefab, transform.position, Quaternion.identity);
         hitEffect.Init(_coinsPerClick);
-        _resources.CollectCoins(1, transform.position);
         StartCoroutine(HitAnimation());
+
+        _partCeator.Create();
     }
 
     private IEnumerator HitAnimation()
